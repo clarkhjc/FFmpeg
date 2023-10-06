@@ -799,6 +799,12 @@ static int sdp_write_media_attributes(char *buff, int size, const AVStream *st,
                                      payload_type);
         }
         break;
+    case AV_CODEC_ID_AV1:
+        av_strlcatf(buff, size, "a=rtpmap:%d AV1/90000\r\n"
+                                "a=fmtp:%d\r\n",
+                                 payload_type, 
+                                 payload_type);
+        break;
     default:
         /* Nothing special to do here... */
         break;

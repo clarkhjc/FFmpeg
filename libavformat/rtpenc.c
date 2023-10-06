@@ -87,6 +87,7 @@ static int is_supported(enum AVCodecID id)
     case AV_CODEC_ID_OPUS:
     case AV_CODEC_ID_RAWVIDEO:
     case AV_CODEC_ID_BITPACKED:
+    case AV_CODEC_ID_AV1:
         return 1;
     default:
         return 0;
@@ -631,6 +632,9 @@ static int rtp_write_packet(AVFormatContext *s1, AVPacket *pkt)
             ff_rtp_send_raw_rfc4175(s1, pkt->data, size, interlaced, 1);
         break;
         }
+    case AV_CODEC_ID_AV1:
+        ff_rtp_send_av1(s1, pkt->data, size);
+        break;
     case AV_CODEC_ID_OPUS:
         if (size > s->max_payload_size) {
             av_log(s1, AV_LOG_ERROR,

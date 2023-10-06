@@ -44,6 +44,7 @@ OBJS-$(CONFIG_RTPDEC)                    += rdt.o                       \
                                             rtpdec_ac3.o                \
                                             rtpdec_amr.o                \
                                             rtpdec_asf.o                \
+											rtpdec_av1.o                \
                                             rtpdec_dv.o                 \
                                             rtpdec_g726.o               \
                                             rtpdec_h261.o               \
@@ -502,6 +503,7 @@ OBJS-$(CONFIG_RSO_MUXER)                 += rsoenc.o rso.o rawenc.o
 OBJS-$(CONFIG_RTP_MPEGTS_MUXER)          += rtpenc_mpegts.o
 OBJS-$(CONFIG_RTP_MUXER)                 += rtp.o         \
                                             rtpenc_aac.o     \
+                                            rtpenc_av1.o     \
                                             rtpenc_latm.o    \
                                             rtpenc_amr.o     \
                                             rtpenc_h261.o    \
